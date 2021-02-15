@@ -1,0 +1,75 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "tag": "apple",
+        "category": "fruits",
+        "price": "60",
+        "inCart": 0,
+        "img":".assets/img/apple.jpg"
+
+    },
+    {
+        "id": 2,
+        "name": "Banana",
+        "tag": "banana",
+        "category": "fruits",
+        "price": "30",
+        "inCart": 0,
+        "img":".assets/img/banana.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Orange",
+        "tag": "orange",
+        "category": "fruits",
+        "price": "40",
+        "inCart": 0,
+        "img":".assets/img/orange.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Pineapple",
+        "tag": "pineapple",
+        "category": "fruits",
+        "price": "60",
+        "inCart": 0,
+        "img":".assets/img/pineapple.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Potato",
+        "tag": "potato",
+        "category": "vegetable",
+        "price": "30",
+        "inCart": 0,
+        "img":".assets/img/potato.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Tomato",
+        "tag": "tomato",
+        "category": "vegetable",
+        "price": "40",
+        "inCart": 0,
+        "img":".assets/img/tomato.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Okra",
+        "tag": "okra",
+        "category": "vegetable",
+        "price": "30",
+        "inCart": 0,
+        "img":".assets/img/okra.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Cabbage",
+        "tag": "cabbage",
+        "category": "vegetable",
+        "price": "40",
+        "inCart": 0,
+        "img":".assets/img/cabbage.jpg"
+    }
+]

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Fresh Market</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto" >
+        <li class="nav-item">
+          <a class="nav-link" href="#about">ABOUT<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#item">FRUITS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#veg">VEGETABLES</a>
+        </li>
+        <li class="nav-cart-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal" id="cart"> CART <span id="cartCount" >0</span> </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- cart Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">CART ITEMS</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row products-container">
+        </div>
+        <table class="table cart-table" id="cart-table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+          </tbody>
+        </table>
+        <div class="container" id="checkout-form">
+          <p class="text-center alert">*If you are not registered first register then login*</p>
+          <h5 class="text-center heading">Register-Form</h5>
+          <form id="register-form">
+            <div class="form-group">
+              <label for="fname">First name:</label>
+              <input type="text" class="form-control" placeholder="Enter first name" id="fname" required>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last name:</label>
+              <input type="text" class="form-control" placeholder="Enter last name" id="lname" required>
+            </div>
+            <div class="form-group">
+              <label for="tel">Phone number:</label>
+              <input type="tel" class="form-control" placeholder="Phone no." id="tel" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" pattern="^[a-z]{7,10}$" placeholder="Enter password" id="pw" required>
+            </div>
+            <button id="rgstr_btn" type="submit" class="btn btn-primary" onClick="store()">Register</button>
+          </form>
+          <h5 class="text-center heading">Login Form</h5>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" placeholder="Enter email" id="userEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" placeholder="Enter password" id="userPw" required>
+            </div>
+            <button id="login_btn" type="submit" value="Login" class="btn btn-primary"
+              onClick="check()">Login</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <div class="total-amt"> 
+          TOTAL : Rs.<span id="totalCost">0</span> 
+        </div>
+        <button type="button" class="check btn btn-success" >Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Image section -->
+  <div class="image">
+    <img src="assets/img/shop.jpg" alt="" width="100%" height="100%">
+  </div>
+  <!-- about section -->
+  <div id="about" class="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>About</h2>
+          <h4>Tradition Since 2021</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa reprehenderit totam nihil ea sunt deleniti necessitatibus soluta doloremque tempore! Possimus facere quasi, incidunt dignissimos dolore quas fugit labore itaque quod.
+          Cupiditate maiores, dolorem voluptates perferendis placeat itaque facere eligendi ipsam accusamus vel nihil! Qui sequi optio alias, voluptas impedit in ab voluptatem minima doloremque? Corporis temporibus quam odio provident delectus.
+          Dolorum distinctio ad tenetur inventore minus tempore ratione quo et, nam, incidunt labore eos architecto itaque perferendis! Deleniti, minus reprehenderit ex atque aut temporibus sapiente tempora saepe porro corrupti ab!
+          Quo, odit! Maiores odit corporis perspiciatis sit! Ea quia facilis dolor commodi neque, pariatur impedit, culpa animi officiis corrupti sed perspiciatis? Veniam laborum, labore eaque repellat reiciendis nobis maiores aut?
+          Blanditiis molestiae esse magnam debitis, consectetur, quisquam at rem natus quia aliquid consequuntur unde eos error porro quis numquam.</p>
+        </div>
+        <div class="col-sm-6">
+          <img src="assets/img/basket.jpg" alt="" width="100%" height="500px">
+        </div>
+      </div>
+    </div>
+  </div>
+    <br>
+    <br>
+    <br>
+    <!-- Fruits List -->
+    <div id="item" class="item">
+      
+        <h2>Fruits Lists</h2>
+        <p class="ab">Items Available In Our Store:</p>
+        <div class="container">
+            <div class="row" id="fruits"> 
+            </div>
+        </div>        
+        <!-- vegetable List -->
+    <div id="veg" class="item">
+      
+      <h2>Vegetable Lists</h2>
+      <p class="ab">Items Available In Our Store:</p>
+      <div class="container">
+          <div class="row" id="vegetable"> 
+          </div>
+      </div>    
+      </div>
+      <!-- footer -->
+      <footer>
+        <p class="contact">Owner : Prateek Nalwaya<br>
+        <a href="prateek.jain3242@gmail.com">prateek.jain3242@gmail.com</a></p>
+      </footer>
+
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>   
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/add.js"></script>
+</body>
+
+
+</html>

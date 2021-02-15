@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+  
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+
+}
+.navbar-light .navbar-brand {
+    font-size: xx-large;
+    font-family: fantasy;
+    color: black;
+}
+.nav-cart-item{
+    background-color: blue;
+ }
+ .navbar-light .navbar-nav .nav-link {
+    color: black;
+    font-size: larger;
+    font-family: serif;
+}
+.col-sm-6{
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.col-sm-6 h2{
+    margin-top: 10px;
+    font-size: xx-large;
+}
+.col-sm-6 h4{
+    margin-top: 15px;
+}
+.item{
+    text-align: center;
+}
+#item h2{
+    font-size: xxx-large;
+    color: black;
+    font-family: initial;
+}
+.ab{
+    font-size: xx-large;
+    color: black;
+    font-family: initial;
+}
+#veg{
+    text-align: center;
+    margin-top: 60px;
+}
+#veg h2{
+    font-size: xxx-large;
+    color: black;
+    font-family: initial;
+}
+
+img.card-img-top {
+    min-height: 290px;
+    object-fit: contain;
+}
+.card-img-cart {
+    width: 80px;
+
+}
+.text-center{
+    border: none;
+    width: 70px;
+    text-align: center!important;
+    font-size: larger;
+    font-weight: bold;
+}
+.button-delete{
+    font-size: 30px;
+    border: none;
+    background: none;
+}
+.card-title {
+    margin-bottom: 0.75rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+#cart-table tr td {
+    vertical-align: middle;
+}
+.d-flex {
+    display: -ms-flexbox!important;
+    display: flex!important;
+    font-size: larger;
+}
+.modal-footer{
+    justify-content: space-between;
+}
+.total-amt{
+    font-family: emoji;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.check {
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+#totalamt{
+    font-weight: bold;
+    font-size: larger;
+}
+.card-text {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: larger;
+    font-weight: bold;
+    color: darkslategray;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    font-size: larger;
+    font-family: serif;
+    font-weight: bold;
+    color: white;
+}
+#checkout-form {
+    display: none;
+}
+.alert{
+    inline-size: -webkit-fill-available;
+    color: red;
+}
+.heading{
+    inline-size: -webkit-fill-available;
+}
+.contact{
+margin-top: 35px;
+font-size: large;
+font-family: serif;
+color: black;
+font-weight: bold;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  outline: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  outline: none;
+}
+
+@media screen and (max-width:767px){
+    .total-amt{
+        font-family: emoji;
+        font-weight: bold;
+        font-size: large;
+    }
+    .card-img-cart {
+        width: 70px;
+    }
+    .card-title {
+        font-size: 15px;
+        text-align: center;
+        margin-top: 15px;
+    }
+    .button-delete{
+        font-size: 15px;
+        border: none;
+        background: none;
+    }
+    #totalamt{
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .text-center {
+        border: none;
+        width: 30px;
+        text-align: center!important;
+        font-size: large;
+        font-weight: bold;
+    }
+    .table td, .table th {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        padding-right: 4px;
+    }
+}
