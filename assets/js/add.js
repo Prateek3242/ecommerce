@@ -16,7 +16,7 @@ function loadData(jsonData) {
     $.each(jsonData, function (index, item) {
         if (item.category == "fruits") {
             var fruitsSection = $('#fruits')
-            fruitsSection.append("<div class='col-sm-3'><div class='card' id='" + item.id + "'><img class='card-img-top' src='" + item.img + "'><div class='card-body'><h5 class='card-title item-name'>" + item.name + "</h5><p class='card-text item-price'>Rs."+ item.price + "(per/Kg)</p><button  class='btn btn-primary add-cart-btn'id='button "  + item.id + "'onclick='addToCart("+item.id+");this.disabled=true'>Add To Cart</button></div></div></div>");
+            fruitsSection.append("<div class='col-sm-3'><div class='card' id='" + item.id + "'><img class='card-img-top' src='" + item.img + "'><div class='card-body'><h5 class='card-title item-name'>" + item.name + "</h5><p class='card-text item-price'>Rs."+ item.price + "(per/Kg)</p><button  class='btn btn-primary add-cart-btn'id='button"  + item.id + "'onclick='addToCart("+item.id+");this.disabled=true'>Add To Cart</button></div></div></div>");
         }
         else if (item.category == "vegetable") {
             var vegetableSection = $('#vegetable')
@@ -80,9 +80,11 @@ function displayCart(){
     
 }
 function deleteRow(r, id) {
+    document.getElementById("button" + id).disabled = false
     var currentObject = Object.values(cartData).find(object => object.id === id);
     cartData = cartData.filter(function (object) {
         return object.id != id
+       
     })
     displayCart()
     displayTotal()

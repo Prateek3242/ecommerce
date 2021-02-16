@@ -59,8 +59,8 @@
     font-family: initial;
 }
 
-img.card-img-top {
-    min-height: 290px;
+.card-img-top {
+    height: 290px;
     object-fit: contain;
 }
 .card-img-cart {
@@ -156,6 +156,9 @@ input[type=number] {
 }
 
 @media screen and (max-width:767px){
+.card-img-top {
+        height: 150px;
+    }
     .total-amt{
         font-family: emoji;
         font-weight: bold;
@@ -168,6 +171,9 @@ input[type=number] {
         font-size: 15px;
         text-align: center;
         margin-top: 15px;
+    }
+    .col-sm-3{
+        margin-top: 20px;
     }
     .button-delete{
         font-size: 15px;

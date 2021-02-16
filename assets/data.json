@@ -2,7 +2,6 @@
     {
         "id": 1,
         "name": "Apple",
-        "tag": "apple",
         "category": "fruits",
         "price": "60",
         "inCart": 0,
@@ -12,7 +11,6 @@
     {
         "id": 2,
         "name": "Banana",
-        "tag": "banana",
         "category": "fruits",
         "price": "30",
         "inCart": 0,
@@ -21,7 +19,6 @@
     {
         "id": 3,
         "name": "Orange",
-        "tag": "orange",
         "category": "fruits",
         "price": "40",
         "inCart": 0,
@@ -30,7 +27,6 @@
     {
         "id": 4,
         "name": "Pineapple",
-        "tag": "pineapple",
         "category": "fruits",
         "price": "60",
         "inCart": 0,
@@ -39,7 +35,6 @@
     {
         "id": 5,
         "name": "Potato",
-        "tag": "potato",
         "category": "vegetable",
         "price": "30",
         "inCart": 0,
@@ -48,7 +43,6 @@
     {
         "id": 6,
         "name": "Tomato",
-        "tag": "tomato",
         "category": "vegetable",
         "price": "40",
         "inCart": 0,
@@ -57,7 +51,6 @@
     {
         "id": 7,
         "name": "Okra",
-        "tag": "okra",
         "category": "vegetable",
         "price": "30",
         "inCart": 0,
@@ -66,7 +59,6 @@
     {
         "id": 8,
         "name": "Cabbage",
-        "tag": "cabbage",
         "category": "vegetable",
         "price": "40",
         "inCart": 0,
