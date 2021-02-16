@@ -26,7 +26,6 @@ function loadData(jsonData) {
 }
 function addToCart(id){
     var currentObject= Object.values(data).find(object => object.id ==id)
-    console.log(currentObject);
     cartData.push(currentObject)
     document.getElementById("cartCount").innerHTML = cartData.length
     displayTotal();
@@ -95,9 +94,9 @@ $(".check").click(function () {
     var desc = ''
     $.each(cartData, function (index, object) {
         if (cartData.length == 1) {
-            desc = object.name
+            desc = object.name+ '('+object.qty+')';
         } else {
-            desc = object.name + ' | ' + desc
+            desc = object.name + '('+object.qty+')'+ ' | ' + desc + '('+object.qty+')';
         }
     })
     if ($("#cart-table").is(":visible")) {
@@ -175,8 +174,9 @@ function check() {
     var storedEmail = localStorage.getItem('email');
     var storedPw = localStorage.getItem('pw');
     var userEmail = document.getElementById('userEmail');
+    
     var userPw = document.getElementById('userPw');
-    var amount = document.querySelector("totalCost").innerHTML
+    var amount = document.querySelector("#totalCost").innerHTML
     if (userEmail.value == storedEmail && userPw.value == storedPw) {
         var options = {
             "key": "rzp_test_HyaYlvYTOymEzW",
