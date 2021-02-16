@@ -97,9 +97,9 @@ $(".check").click(function () {
     var desc = ''
     $.each(cartData, function (index, object) {
         if (cartData.length == 1) {
-            desc = object.name+ '('+object.qty+')';
+            desc = object.name;
         } else {
-            desc = object.name + '('+object.qty+')'+ ' | ' + desc + '('+object.qty+')';
+            desc = object.name + ' | ' + desc
         }
     })
     if ($("#cart-table").is(":visible")) {
