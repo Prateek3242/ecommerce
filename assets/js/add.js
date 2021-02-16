@@ -26,6 +26,7 @@ function loadData(jsonData) {
 }
 function addToCart(id){
     var currentObject= Object.values(data).find(object => object.id ==id)
+    console.log(currentObject);
     cartData.push(currentObject)
     document.getElementById("cartCount").innerHTML = cartData.length
     displayTotal();
@@ -198,8 +199,8 @@ function check() {
             },
             "prefill": {
                 "name": "Prateek Nalwaya",
-                "email": 'prateeknalwaya3242@gmail.com',
-                "contact": '+919664456876'
+                "email": userEmail,
+                "contact": phone
             },
             "notes": {
                 "address": "F-35 Bhopalpura,Udaipur"
