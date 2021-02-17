@@ -3,6 +3,7 @@
         "id": 1,
         "name": "Apple",
         "category": "fruits",
+        "quantity":1,
         "price": "60",
         "inCart": 0,
         "img":"assets/img/apple.jpg"
@@ -12,6 +13,7 @@
         "id": 2,
         "name": "Banana",
         "category": "fruits",
+        "quantity":1,
         "price": "30",
         "inCart": 0,
         "img":"assets/img/banana.jpg"
@@ -20,6 +22,7 @@
         "id": 3,
         "name": "Orange",
         "category": "fruits",
+        "quantity":1,
         "price": "40",
         "inCart": 0,
         "img":"assets/img/orange.jpg"
@@ -28,6 +31,7 @@
         "id": 4,
         "name": "Pineapple",
         "category": "fruits",
+        "quantity":1,
         "price": "60",
         "inCart": 0,
         "img":"assets/img/pineapple.jpg"
@@ -36,6 +40,7 @@
         "id": 5,
         "name": "Potato",
         "category": "vegetable",
+        "quantity":1,
         "price": "30",
         "inCart": 0,
         "img":"assets/img/potato.jpg"
@@ -44,6 +49,7 @@
         "id": 6,
         "name": "Tomato",
         "category": "vegetable",
+        "quantity":1,
         "price": "40",
         "inCart": 0,
         "img":"assets/img/tomato.jpg"
@@ -52,6 +58,7 @@
         "id": 7,
         "name": "Okra",
         "category": "vegetable",
+        "quantity":1,
         "price": "30",
         "inCart": 0,
         "img":"assets/img/okra.jpg"
@@ -60,6 +67,7 @@
         "id": 8,
         "name": "Cabbage",
         "category": "vegetable",
+        "quantity":1,
         "price": "40",
         "inCart": 0,
         "img":"assets/img/cabbage.jpg"

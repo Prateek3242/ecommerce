@@ -1,6 +1,7 @@
 
 var cartData = []
 var data = []
+
 $.ajax({
     url: 'assets/data.json',
     dataType: 'json',
@@ -16,31 +17,30 @@ function loadData(jsonData) {
     $.each(jsonData, function (index, item) {
         if (item.category == "fruits") {
             var fruitsSection = $('#fruits')
-            fruitsSection.append("<div class='col-sm-3'><div class='card' id='" + item.id + "'><img class='card-img-top' src='" + item.img + "'><div class='card-body'><h5 class='card-title item-name'>" + item.name + "</h5><p class='card-text item-price'>Rs."+ item.price + "(per/Kg)</p><button  class='btn btn-primary add-cart-btn'id='button"  + item.id + "'onclick='addToCart("+item.id+");this.disabled=true'>Add To Cart</button></div></div></div>");
+            fruitsSection.append("<div class='col-sm-3'><div class='card' id='" + item.id + "'><img class='card-img-top' src='" + item.img + "'><div class='card-body'><h5 class='card-title item-name'>" + item.name + "</h5><p class='card-text item-price'>Rs." + item.price + "(per/Kg)</p><button  class='btn btn-primary add-cart-btn'id='button" + item.id + "'onclick='addToCart(" + item.id + ");this.disabled=true'>Add To Cart</button></div></div></div>");
         }
         else if (item.category == "vegetable") {
             var vegetableSection = $('#vegetable')
-            vegetableSection.append("<div class='col-sm-3'><div class='card' id='" + item.id + "'><img class='card-img-top' src='" + item.img + "' alt='Card image cap'><div class='card-body'><h5 class='card-title item-name'>" + item.name + "</h5><p class='card-text item-price'>Rs." + item.price + "(per/Kg)</p><button  class='btn btn-primary add-cart-btn'id='button" + item.id + "'onclick='addToCart("+item.id+");this.disabled=true'>Add To Cart</button></div></div>");
+            vegetableSection.append("<div class='col-sm-3'><div class='card' id='" + item.id + "'><img class='card-img-top' src='" + item.img + "' alt='Card image cap'><div class='card-body'><h5 class='card-title item-name'>" + item.name + "</h5><p class='card-text item-price'>Rs." + item.price + "(per/Kg)</p><button  class='btn btn-primary add-cart-btn'id='button" + item.id + "'onclick='addToCart(" + item.id + ");this.disabled=true'>Add To Cart</button></div></div>");
         }
     })
 }
-function addToCart(id){
-    var currentObject= Object.values(data).find(object => object.id ==id)
-    console.log(currentObject);
+function addToCart(id) {
+    var currentObject = Object.values(data).find(object => object.id == id)
     cartData.push(currentObject)
+    localStorage.setItem("cart-data", JSON.stringify(cartData))
     document.getElementById("cartCount").innerHTML = cartData.length
     displayTotal();
-    displayCart();
     checkCartButton();
-    
+
 }
-function displayTotal(){
+function displayTotal() {
     var cartRows = document.getElementById("cart-table").rows.length
-    var total=0
-    
+    var total = 0
+
     var i = 0
-    for(i=1 ; i < cartRows; i++){
-    total = parseInt(document.getElementById("cart-table").rows[i].cells[2].innerHTML.substring(4)) + total
+    for (i = 1; i < cartRows; i++) {
+        total = parseInt(document.getElementById("cart-table").rows[i].cells[2].innerHTML.substring(4)) + total
     }
     document.getElementById("totalCost").innerHTML = ''
     document.getElementById("totalCost").innerHTML = total;
@@ -52,6 +52,15 @@ function increment(curr, id) {
     var qty = curr.parentNode.querySelector("#qty").value
     var totalAmount = price * qty
     curr.parentNode.parentNode.parentNode.childNodes[2].innerHTML = "Rs. " + totalAmount
+    var cartItems = JSON.parse(localStorage.getItem("cart-data"))
+   
+    for (var i = 0; i < cartItems.length; i++) {
+        if (currentObject.id === cartItems[i].id) {
+            cartItems[i].quantity = qty;
+            break;  
+        }
+    }
+    localStorage.setItem("cart-data", JSON.stringify(cartItems));
     displayTotal()
     checkCartButton()
 }
@@ -60,39 +69,55 @@ function decrement(curr, id) {
     curr.parentNode.childNodes[1].childNodes[0].stepDown();
     var price = currentObject.price
     var qty = curr.parentNode.querySelector("#qty").value
+
     var totalAmount = price * qty
     curr.parentNode.parentNode.parentNode.childNodes[2].innerHTML = "Rs. " + totalAmount
+    var cartItems = JSON.parse(localStorage.getItem("cart-data"))
+   
+    for (var i = 0; i < cartItems.length; i++) {
+        if (currentObject.id === cartItems[i].id) { 
+            cartItems[i].quantity = qty; 
+        }
+    }
+    localStorage.setItem("cart-data", JSON.stringify(cartItems));
     displayTotal()
     checkCartButton()
 }
-function displayCart(){
+function displayCart() {
     $("#cart-items").empty()
-    for (index in cartData) {
+    var cartItems = JSON.parse(localStorage.getItem("cart-data"))
+    for (index in cartItems) {
+
         $("#cart-items").append("<tr>" +
-            "<td><img src='" + cartData[index].img + "' class='card-img-cart'><h5 class='card-title item-name'>" + cartData[index].name + "</h5></td>" +
-            "<td><div class='d-flex align-items-center'><div class='dec-btn' onclick='decrement(this," + cartData[index].id + ")'><i class='fas fa-minus'></i></div><span class='btn-inner--text'><input type='number' name='qty' class='text-center' id='qty' min='1' value='1'></span><div class='dec-btn' onclick='increment(this," + cartData[index].id + ")'><i class='fas fa-plus' aria-hidden='true'></i></div></div></td>" +
-            "<td id='totalamt'> Rs. " + cartData[index].price + "</td>" +
-            "<td><button class='button-delete' type='button' onclick='deleteRow(this," + cartData[index].id + ")' ><i class='fas fa-trash-alt' aria-hidden='true'></i></button></td>" + "</tr>");
+            "<td><img src='" + cartItems[index].img + "' class='card-img-cart'><h5 class='card-title item-name'>" + cartItems[index].name + "</h5></td>" +
+            "<td><div class='d-flex align-items-center'><div class='dec-btn' onclick='decrement(this," + cartItems[index].id + ")'><i class='fas fa-minus'></i></div><span class='btn-inner--text'><input type='number' name='qty' class='text-center' id='qty' min='1' value='1'></span><div class='dec-btn' onclick='increment(this," + cartItems[index].id + ")'><i class='fas fa-plus' aria-hidden='true'></i></div></div></td>" +
+            "<td id='totalamt'> Rs. " + cartItems[index].price + "</td>" +
+            "<td><button class='button-delete' type='button' onclick='deleteRow(this," + cartItems[index].id + ")' ><i class='fas fa-trash-alt' aria-hidden='true'></i></button></td>" + "</tr>");
     }
     document.getElementById("cartCount").innerHTML = document.getElementById("cart-table").rows.length - 1
-    displayTotal()   
+    displayTotal()
     checkCartButton()
-    
+
 }
 function deleteRow(r, id) {
     document.getElementById("button" + id).disabled = false
     var currentObject = Object.values(cartData).find(object => object.id === id);
-    cartData = cartData.filter(function (object) {
+    var deleteData = JSON.parse(localStorage.getItem("cart-data"))
+    console.log(deleteData)
+    cartData = deleteData.filter(function (object) {
         return object.id != id
-       
+
     })
+    
+    localStorage.setItem("cart-data", JSON.stringify(cartData))
+ 
     displayCart()
     displayTotal()
     checkCartButton()
     if (cartData.length == 0) {
         location.href = '/index.html';
     }
-} 
+}
 $(".check").click(function () {
     var desc = ''
     $.each(cartData, function (index, object) {
@@ -116,7 +141,7 @@ $(".check").click(function () {
     if (userEmail) {
         if (window.confirm('You are already logged in..Continue checkout')) {
             var amount = document.getElementById("totalCost").innerHTML
-            
+
             console.log(amount)
             var options = {
                 "key": "rzp_test_HyaYlvYTOymEzW",
@@ -163,7 +188,7 @@ $(".check").click(function () {
     } else {
         $("#checkout-form").toggle();
     }
-}); 
+});
 function store() {
     var userEmail = document.getElementById('email');
     var userPwd = document.getElementById('pw');
@@ -177,7 +202,7 @@ function check() {
     var storedEmail = localStorage.getItem('email');
     var storedPw = localStorage.getItem('pw');
     var userEmail = document.getElementById('userEmail');
-    
+
     var userPw = document.getElementById('userPw');
     var amount = document.querySelector("#totalCost").innerHTML
     if (userEmail.value == storedEmail && userPw.value == storedPw) {
@@ -213,11 +238,11 @@ function check() {
         };
         var propay = new Razorpay(options);
         propay.open();
-    } 
+    }
     else {
         alert('Invalid credentials');
     }
-} 
+}
 function checkCartButton() {
     if (document.getElementById("cartCount").innerHTML == 0) {
         document.getElementById("cart").disabled = true
