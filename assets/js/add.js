@@ -103,7 +103,6 @@ function deleteRow(r, id) {
     document.getElementById("button" + id).disabled = false
     var currentObject = Object.values(cartData).find(object => object.id === id);
     var deleteData = JSON.parse(localStorage.getItem("cart-data"))
-    console.log(deleteData)
     cartData = deleteData.filter(function (object) {
         return object.id != id
 
