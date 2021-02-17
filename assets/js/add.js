@@ -123,7 +123,7 @@ $(".check").click(function () {
         if (cartData.length == 1) {
             desc = object.name;
         } else {
-            desc = object.name + ' | ' + desc
+            desc = object.name + ' | ' + desc;
         }
     })
     if ($("#cart-table").is(":visible")) {

@@ -93,6 +93,10 @@
     display: flex!important;
     font-size: larger;
 }
+.modal-heading {
+    font-family: emoji;
+    font-weight: bold;
+}
 .modal-footer{
     justify-content: space-between;
 }
