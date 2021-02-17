@@ -90,8 +90,8 @@ function displayCart() {
 
         $("#cart-items").append("<tr>" +
             "<td><img src='" + cartItems[index].img + "' class='card-img-cart'><h5 class='card-title item-name'>" + cartItems[index].name + "</h5></td>" +
-            "<td><div class='d-flex align-items-center'><div class='dec-btn' onclick='decrement(this," + cartItems[index].id + ")'><i class='fas fa-minus'></i></div><span class='btn-inner--text'><input type='number' name='qty' class='text-center' id='qty' min='1' value='1'></span><div class='dec-btn' onclick='increment(this," + cartItems[index].id + ")'><i class='fas fa-plus' aria-hidden='true'></i></div></div></td>" +
-            "<td id='totalamt'> Rs. " + cartItems[index].price + "</td>" +
+            "<td><div class='d-flex align-items-center'><div class='dec-btn' onclick='decrement(this," + cartItems[index].id + ")'><i class='fas fa-minus'></i></div><span class='btn-inner--text'><input type='number' name='qty' class='text-center' id='qty' min='1' value='"+cartItems[index].quantity+"'></span><div class='dec-btn' onclick='increment(this," + cartItems[index].id + ")'><i class='fas fa-plus' aria-hidden='true'></i></div></div></td>" +
+            "<td id='totalamt'> Rs. " + cartItems[index].price*cartItems[index].quantity + "</td>" +
             "<td><button class='button-delete' type='button' onclick='deleteRow(this," + cartItems[index].id + ")' ><i class='fas fa-trash-alt' aria-hidden='true'></i></button></td>" + "</tr>");
     }
     document.getElementById("cartCount").innerHTML = document.getElementById("cart-table").rows.length - 1
@@ -109,6 +109,7 @@ function deleteRow(r, id) {
     })
     
     localStorage.setItem("cart-data", JSON.stringify(cartData))
+    console.log( JSON.parse(localStorage.getItem("cart-data")))
  
     displayCart()
     displayTotal()
@@ -118,7 +119,7 @@ function deleteRow(r, id) {
     }
 }
 $(".check").click(function () {
-    var desc = ''
+    var desc = ''   
     $.each(cartData, function (index, object) {
         if (cartData.length == 1) {
             desc = object.name;
@@ -218,7 +219,7 @@ function check() {
                         $.each(cartData, function (index, object) {
                             document.getElementById("button" + object.id).disabled = false
                         })
-                        document.getElementById("totalCost").innerHTML = 0
+
                         location.href = './index.html'
                     }
                 }
