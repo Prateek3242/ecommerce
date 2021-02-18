@@ -1,6 +1,7 @@
 
 var cartData = []
 var data = []
+updateButtonValue()
 
 $.ajax({
     url: 'assets/data.json',
@@ -26,14 +27,30 @@ function loadData(jsonData) {
     })
 }
 function addToCart(id) {
+    if(JSON.parse(localStorage.getItem("cart-data"))){
+        var cart=JSON.parse(localStorage.getItem("cart-data"))}
+        else{
+            cart=[]
+        }    
     var currentObject = Object.values(data).find(object => object.id == id)
     cartData.push(currentObject)
     localStorage.setItem("cart-data", JSON.stringify(cartData))
     document.getElementById("cartCount").innerHTML = cartData.length
+    updateButtonValue();
     displayTotal();
     checkCartButton();
-
 }
+function updateButtonValue(){
+    console.log(JSON.parse(localStorage.getItem("cart-data")))
+    if(JSON.parse(localStorage.getItem("cart-data")))
+    {
+        document.getElementById("cartCount").innerHTML=JSON.parse(localStorage.getItem("cart-data")).length
+    }
+    else{
+        document.getElementById("cartCount").innerHTML=0
+    }
+    }
+    
 function displayTotal() {
     var cartRows = document.getElementById("cart-table").rows.length
     var total = 0
